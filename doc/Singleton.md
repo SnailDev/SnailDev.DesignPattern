@@ -209,4 +209,5 @@
 
 ### 参考资料
 http://www.cnblogs.com/rush/archive/2011/10/30/2229565.html
+
 http://csharpindepth.com/Articles/General/Singleton.aspx
