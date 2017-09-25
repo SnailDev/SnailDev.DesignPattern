@@ -8,6 +8,9 @@ namespace DesignPattern.Tests
     {
         static void Main(string[] args)
         {
+            //Console.WriteLine(Singleton.GetInstance());
+
+            Console.ReadLine();
         }
     }
 }
