@@ -1,2 +1,2 @@
 # SnailDev.DesignPattern
-Learing for design patterns
+Learning for design pattern
