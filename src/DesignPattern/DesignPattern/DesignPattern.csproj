@@ -38,6 +38,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builder\BigCar.cs" />
+    <Compile Include="Builder\Builder.cs" />
+    <Compile Include="Builder\BuilderA.cs" />
+    <Compile Include="Builder\BuilderB.cs" />
+    <Compile Include="Builder\Director.cs" />
     <Compile Include="Factory\AbstractFactory\AbstractFactory.cs" />
     <Compile Include="Factory\AbstractFactory\CheryAbFactory.cs" />
     <Compile Include="Factory\AbstractFactory\CheryService.cs" />
