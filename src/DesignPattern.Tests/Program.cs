@@ -16,7 +16,8 @@ namespace DesignPattern.Tests
             //var haha = 123456;
             //Console.WriteLine($"Excuted Failed,Message: ({haha})");
 
-            BuilderInvoke();
+            //BuilderInvoke();
+            PrototypeInvoke();
             Console.ReadLine();
         }
 
@@ -36,6 +37,16 @@ namespace DesignPattern.Tests
             director.AssemblyCar(b2);
             var car2 = b2.GetCar();
             car2.DoAssembly();
+        }
+
+        static void PrototypeInvoke()
+        {
+            ConcretePrototype concretePrototypeA = new ConcretePrototype();
+            concretePrototypeA.Attr = "Monkey";
+
+            var ConcretePrototypeB = (ConcretePrototype)concretePrototypeA.Clone();
+            Console.WriteLine(concretePrototypeA == ConcretePrototypeB);
+            Console.WriteLine(concretePrototypeA.Attr == ConcretePrototypeB.Attr);
         }
     }
 }
