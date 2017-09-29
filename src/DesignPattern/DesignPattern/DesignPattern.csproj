@@ -38,6 +38,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\Class\Adaptee.cs" />
+    <Compile Include="Adapter\Class\ITarget.cs" />
+    <Compile Include="Adapter\Class\PowerAdapter_Class.cs" />
+    <Compile Include="Adapter\Object\PowerAdapter_Object.cs" />
+    <Compile Include="Adapter\Object\Target.cs" />
     <Compile Include="Builder\BigCar.cs" />
     <Compile Include="Builder\Builder.cs" />
     <Compile Include="Builder\BuilderA.cs" />
