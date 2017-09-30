@@ -43,6 +43,12 @@
     <Compile Include="Adapter\Class\PowerAdapter_Class.cs" />
     <Compile Include="Adapter\Object\PowerAdapter_Object.cs" />
     <Compile Include="Adapter\Object\Target.cs" />
+    <Compile Include="Bridge\BDNavigator.cs" />
+    <Compile Include="Bridge\BenzVehicle.cs" />
+    <Compile Include="Bridge\BMWVehicle.cs" />
+    <Compile Include="Bridge\GDNavigator.cs" />
+    <Compile Include="Bridge\INavigator.cs" />
+    <Compile Include="Bridge\VehicleBrand.cs" />
     <Compile Include="Builder\BigCar.cs" />
     <Compile Include="Builder\Builder.cs" />
     <Compile Include="Builder\BuilderA.cs" />
