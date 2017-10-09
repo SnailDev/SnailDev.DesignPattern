@@ -1,4 +1,5 @@
 ﻿using DesignPattern.Bridge;
+using DesignPattern.Decorator;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,7 +20,9 @@ namespace DesignPattern.Tests
 
             // BuilderInvoke();
             // PrototypeInvoke();
-            BridgeInvoke();
+            // BridgeInvoke();
+            DecoratorInvoke();
+
             Console.ReadLine();
         }
 
@@ -69,6 +72,18 @@ namespace DesignPattern.Tests
             VehicleBrand benz = new BenzVehicle();
             benz.InstallNavigator(gdNavigator);
             benz.OpenNavigator();
+        }
+
+        static void DecoratorInvoke()
+        {
+            Beverage beverage = new DarkRoast(); // 焦烤咖啡
+            Console.WriteLine(beverage.GetDescription() + " $" + beverage.Cost());
+            beverage = new Mocha(beverage); //添加摩卡
+            Console.WriteLine(beverage.GetDescription() + " $" + beverage.Cost());
+            beverage = new Milk(beverage);  //添加牛奶
+            Console.WriteLine(beverage.GetDescription() + " $" + beverage.Cost());
+            Beverage beverage2 = new Milk(new HouseBlend()); // 家庭混合咖啡加摩卡加牛奶
+            Console.WriteLine(beverage2.GetDescription() + " $" + beverage2.Cost());
         }
     }
 }
