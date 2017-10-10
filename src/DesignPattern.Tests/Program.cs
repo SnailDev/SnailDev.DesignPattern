@@ -91,13 +91,13 @@ namespace DesignPattern.Tests
         static void CompositeInvoke()
         {
             // 生成树根，并为其增加两个叶子节点
-            Component root = new Composite.Composite("Root");
+            Composite.Composite root = new Composite.Composite("Root");
             root.Add(new Leaf("Leaf A in Root"));
             root.Add(new Leaf("Leaf B in Root"));
 
             // 为根增加两个枝节点
-            Component branchX = new Composite.Composite("Branch X in Root");
-            Component branchY = new Composite.Composite("Branch Y in Root");
+            Composite.Composite branchX = new Composite.Composite("Branch X in Root");
+            Composite.Composite branchY = new Composite.Composite("Branch Y in Root");
             root.Add(branchX);
             root.Add(branchY);
 
@@ -105,7 +105,7 @@ namespace DesignPattern.Tests
             branchX.Add(new Leaf("Leaf A in Branch X"));
 
             // 为BranchX增加枝节点
-            Component branchZ = new Composite.Composite("Branch Z in Branch X");
+            Composite.Composite branchZ = new Composite.Composite("Branch Z in Branch X");
             branchX.Add(branchZ);
 
             // 为BranchY增加叶节点
