@@ -54,6 +54,9 @@
     <Compile Include="Builder\BuilderA.cs" />
     <Compile Include="Builder\BuilderB.cs" />
     <Compile Include="Builder\Director.cs" />
+    <Compile Include="Composite\Component.cs" />
+    <Compile Include="Composite\Composite.cs" />
+    <Compile Include="Composite\Leaf.cs" />
     <Compile Include="Decorator\Beverage.cs" />
     <Compile Include="Decorator\CondimentDecorator.cs" />
     <Compile Include="Decorator\DarkRoast.cs" />

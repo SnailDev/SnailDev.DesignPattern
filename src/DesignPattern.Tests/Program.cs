@@ -1,4 +1,5 @@
 ﻿using DesignPattern.Bridge;
+using DesignPattern.Composite;
 using DesignPattern.Decorator;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,8 @@ namespace DesignPattern.Tests
             // BuilderInvoke();
             // PrototypeInvoke();
             // BridgeInvoke();
-            DecoratorInvoke();
+            // DecoratorInvoke();
+            CompositeInvoke();
 
             Console.ReadLine();
         }
@@ -84,6 +86,36 @@ namespace DesignPattern.Tests
             Console.WriteLine(beverage.GetDescription() + " $" + beverage.Cost());
             Beverage beverage2 = new Milk(new HouseBlend()); // 家庭混合咖啡加摩卡加牛奶
             Console.WriteLine(beverage2.GetDescription() + " $" + beverage2.Cost());
+        }
+
+        static void CompositeInvoke()
+        {
+            // 生成树根，并为其增加两个叶子节点
+            Component root = new Composite.Composite("Root");
+            root.Add(new Leaf("Leaf A in Root"));
+            root.Add(new Leaf("Leaf B in Root"));
+
+            // 为根增加两个枝节点
+            Component branchX = new Composite.Composite("Branch X in Root");
+            Component branchY = new Composite.Composite("Branch Y in Root");
+            root.Add(branchX);
+            root.Add(branchY);
+
+            // 为BranchX增加页节点
+            branchX.Add(new Leaf("Leaf A in Branch X"));
+
+            // 为BranchX增加枝节点
+            Component branchZ = new Composite.Composite("Branch Z in Branch X");
+            branchX.Add(branchZ);
+
+            // 为BranchY增加叶节点
+            branchY.Add(new Leaf("Leaf in Branch Y"));
+
+            // 为BranchZ增加叶节点
+            branchZ.Add(new Leaf("Leaf in Branch Z"));
+
+            // 显示树
+            root.Display(1);
         }
     }
 }
