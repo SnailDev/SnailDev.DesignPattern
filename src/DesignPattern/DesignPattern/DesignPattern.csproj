@@ -63,6 +63,9 @@
     <Compile Include="Decorator\HouseBlend.cs" />
     <Compile Include="Decorator\Milk.cs" />
     <Compile Include="Decorator\Mocha.cs" />
+    <Compile Include="Facade\NotifySystem.cs" />
+    <Compile Include="Facade\SelectCourseFacade.cs" />
+    <Compile Include="Facade\SelectSystem.cs" />
     <Compile Include="Factory\AbstractFactory\AbstractFactory.cs" />
     <Compile Include="Factory\AbstractFactory\CheryAbFactory.cs" />
     <Compile Include="Factory\AbstractFactory\CheryService.cs" />

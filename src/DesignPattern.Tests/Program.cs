@@ -1,6 +1,7 @@
 ﻿using DesignPattern.Bridge;
 using DesignPattern.Composite;
 using DesignPattern.Decorator;
+using DesignPattern.Facade;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -23,7 +24,8 @@ namespace DesignPattern.Tests
             // PrototypeInvoke();
             // BridgeInvoke();
             // DecoratorInvoke();
-            CompositeInvoke();
+            // CompositeInvoke();
+            FacadeInvoke();
 
             Console.ReadLine();
         }
@@ -64,12 +66,12 @@ namespace DesignPattern.Tests
             // 当然我们还可以给汽车配置更多不同的后装配件例如：空气净化器等。  
             INavigator bdNavigator = new BDNavigator();
             INavigator gdNavigator = new GDNavigator();
-            
+
             //宝马安装北斗导航  
             VehicleBrand bmw = new BMWVehicle();
             bmw.InstallNavigator(bdNavigator);
             bmw.OpenNavigator();
-            
+
             //奔驰安装了高德导航  
             VehicleBrand benz = new BenzVehicle();
             benz.InstallNavigator(gdNavigator);
@@ -116,6 +118,38 @@ namespace DesignPattern.Tests
 
             // 显示树
             root.Display(1);
+        }
+
+        static void FacadeInvoke()
+        {
+            string courseName = "设计模式";
+            string studentName = "小明";
+            SelectSystem selectSystem = new SelectSystem();
+            NotifySystem notifySystem = new NotifySystem();
+            if (selectSystem.CheckAvailable(courseName))
+            {
+                Console.WriteLine($"{courseName}课程已经不可选");
+            }
+            else
+            {
+                Console.WriteLine($"{courseName}课程选择成功");
+                if (notifySystem.Notify(studentName))
+                    Console.WriteLine($"通知学生{studentName}成功");
+                else
+                    Console.WriteLine($"通知学生{studentName}失败");
+            }
+
+            //Facade pattern
+            SelectCourseFacade facade = new SelectCourseFacade();
+            if (facade.SelectCourse(courseName, studentName))
+            {
+                Console.WriteLine("成功");
+            }
+            else
+            {
+                Console.WriteLine("失败");
+            }
+
         }
     }
 }
