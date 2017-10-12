@@ -2,6 +2,7 @@
 using DesignPattern.Composite;
 using DesignPattern.Decorator;
 using DesignPattern.Facade;
+using DesignPattern.FlyWeight;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,7 +26,9 @@ namespace DesignPattern.Tests
             // BridgeInvoke();
             // DecoratorInvoke();
             // CompositeInvoke();
-            FacadeInvoke();
+            // FacadeInvoke();
+
+            FlyWeightInvoke();
 
             Console.ReadLine();
         }
@@ -150,6 +153,21 @@ namespace DesignPattern.Tests
                 Console.WriteLine("失败");
             }
 
+        }
+
+        static void FlyWeightInvoke()
+        {
+            int externalstate = 10; // 定义外部状态，如字母的位置等信息
+            FlyweightFactory factory = new FlyweightFactory(); // 初始化享元工厂
+
+            Flyweight fa = factory.GetFlyweight("A");
+            fa.Operation(--externalstate);
+
+            Flyweight fb = factory.GetFlyweight("B");
+            fb.Operation(--externalstate);
+
+            Flyweight fd = factory.GetFlyweight("D");
+            fd.Operation(--externalstate);
         }
     }
 }

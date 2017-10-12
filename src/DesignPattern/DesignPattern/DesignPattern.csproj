@@ -84,6 +84,9 @@
     <Compile Include="Factory\LamboCar.cs" />
     <Compile Include="Factory\LandRoverCar.cs" />
     <Compile Include="Factory\SimpleFactory\SimpleFactory.cs" />
+    <Compile Include="FlyWeight\ConcreteFlyweight.cs" />
+    <Compile Include="FlyWeight\Flyweight.cs" />
+    <Compile Include="FlyWeight\FlyweightFactory.cs" />
     <Compile Include="Prototype\ConcretePrototype.cs" />
     <Compile Include="Prototype\ConcretePrototypeDeepClone.cs" />
     <Compile Include="Prototype\Prototype.cs" />
