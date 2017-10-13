@@ -3,6 +3,7 @@ using DesignPattern.Composite;
 using DesignPattern.Decorator;
 using DesignPattern.Facade;
 using DesignPattern.FlyWeight;
+using DesignPattern.Proxy;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -27,8 +28,8 @@ namespace DesignPattern.Tests
             // DecoratorInvoke();
             // CompositeInvoke();
             // FacadeInvoke();
-
-            FlyWeightInvoke();
+            // FlyWeightInvoke();
+            ProxyInvoke();
 
             Console.ReadLine();
         }
@@ -168,6 +169,13 @@ namespace DesignPattern.Tests
 
             Flyweight fd = factory.GetFlyweight("D");
             fd.Operation(--externalstate);
+        }
+
+        static void ProxyInvoke()
+        {
+            // 创建一个代理对象并发出请求
+            InternetShop proxy = new InternetShop();
+            proxy.Sell();
         }
     }
 }
