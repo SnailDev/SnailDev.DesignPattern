@@ -4,6 +4,7 @@ using DesignPattern.Decorator;
 using DesignPattern.Facade;
 using DesignPattern.FlyWeight;
 using DesignPattern.Proxy;
+using DesignPattern.TemplateMethod;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -29,7 +30,8 @@ namespace DesignPattern.Tests
             // CompositeInvoke();
             // FacadeInvoke();
             // FlyWeightInvoke();
-            ProxyInvoke();
+            // ProxyInvoke();
+            TemplateMethodInvoke();
 
             Console.ReadLine();
         }
@@ -54,8 +56,10 @@ namespace DesignPattern.Tests
 
         static void PrototypeInvoke()
         {
-            ConcretePrototype concretePrototypeA = new ConcretePrototype();
-            concretePrototypeA.Attr = "Monkey";
+            ConcretePrototype concretePrototypeA = new ConcretePrototype
+            {
+                Attr = "Monkey"
+            };
 
             var ConcretePrototypeB = (ConcretePrototype)concretePrototypeA.Clone();
             Console.WriteLine(concretePrototypeA == ConcretePrototypeB);
@@ -176,6 +180,20 @@ namespace DesignPattern.Tests
             // 创建一个代理对象并发出请求
             InternetShop proxy = new InternetShop();
             proxy.Sell();
+        }
+
+        static void TemplateMethodInvoke()
+        {
+            // 声明抽象类
+            AbstractClass ac;
+
+            // 用ConcreteClassA实例化ac
+            ac = new ConcreteClassA();
+            ac.TemplateMethod();
+
+            // 用ConcreteClassB实例化ac
+            ac = new ConcreteClassB();
+            ac.TemplateMethod();
         }
     }
 }
