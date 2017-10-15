@@ -54,6 +54,10 @@
     <Compile Include="Builder\BuilderA.cs" />
     <Compile Include="Builder\BuilderB.cs" />
     <Compile Include="Builder\Director.cs" />
+    <Compile Include="Command\ConcereteCommand.cs" />
+    <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Command\Invoker.cs" />
+    <Compile Include="Command\Receiver.cs" />
     <Compile Include="Composite\Component.cs" />
     <Compile Include="Composite\Composite.cs" />
     <Compile Include="Composite\Leaf.cs" />

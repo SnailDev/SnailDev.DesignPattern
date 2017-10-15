@@ -1,4 +1,5 @@
 ﻿using DesignPattern.Bridge;
+using DesignPattern.Command;
 using DesignPattern.Composite;
 using DesignPattern.Decorator;
 using DesignPattern.Facade;
@@ -31,7 +32,8 @@ namespace DesignPattern.Tests
             // FacadeInvoke();
             // FlyWeightInvoke();
             // ProxyInvoke();
-            TemplateMethodInvoke();
+            // TemplateMethodInvoke();
+            CommandInvoke();
 
             Console.ReadLine();
         }
@@ -194,6 +196,16 @@ namespace DesignPattern.Tests
             // 用ConcreteClassB实例化ac
             ac = new ConcreteClassB();
             ac.TemplateMethod();
+        }
+
+        static void CommandInvoke()
+        {
+            Receiver receiver = new Receiver();
+            ICommand command = new ConcereteCommand(receiver);
+            Invoker invoker = new Invoker();
+
+            invoker.SetCommand(command);
+            invoker.ExecuteCommand();
         }
     }
 }
