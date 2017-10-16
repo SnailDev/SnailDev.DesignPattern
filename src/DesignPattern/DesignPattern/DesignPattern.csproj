@@ -87,6 +87,10 @@
     <Compile Include="FlyWeight\ConcreteFlyweight.cs" />
     <Compile Include="FlyWeight\Flyweight.cs" />
     <Compile Include="FlyWeight\FlyweightFactory.cs" />
+    <Compile Include="Iterator\Aggregate.cs" />
+    <Compile Include="Iterator\ConcreteAggregate.cs" />
+    <Compile Include="Iterator\ConcreteIterator.cs" />
+    <Compile Include="Iterator\Iterator.cs" />
     <Compile Include="Prototype\ConcretePrototype.cs" />
     <Compile Include="Prototype\ConcretePrototypeDeepClone.cs" />
     <Compile Include="Prototype\Prototype.cs" />

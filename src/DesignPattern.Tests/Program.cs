@@ -3,6 +3,7 @@ using DesignPattern.Composite;
 using DesignPattern.Decorator;
 using DesignPattern.Facade;
 using DesignPattern.FlyWeight;
+using DesignPattern.Iterator;
 using DesignPattern.Proxy;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,8 @@ namespace DesignPattern.Tests
             // CompositeInvoke();
             // FacadeInvoke();
             // FlyWeightInvoke();
-            ProxyInvoke();
+            // ProxyInvoke();
+            IteratorInvoke();
 
             Console.ReadLine();
         }
@@ -176,6 +178,21 @@ namespace DesignPattern.Tests
             // 创建一个代理对象并发出请求
             InternetShop proxy = new InternetShop();
             proxy.Sell();
+        }
+
+        static void IteratorInvoke()
+        {
+            ConcreteAggregate a = new ConcreteAggregate();
+            a[0] = "xiaoming";
+            a[1] = "xiaohong";
+
+            Iterator.Iterator i = a.CreateIterator();
+            object item = i.First();
+            while (!i.IsDone())
+            {
+                Console.WriteLine("{0}请Say Hi！", i.CurrentItem());
+                i.Next();
+            }
         }
     }
 }
