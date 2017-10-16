@@ -54,6 +54,10 @@
     <Compile Include="Builder\BuilderA.cs" />
     <Compile Include="Builder\BuilderB.cs" />
     <Compile Include="Builder\Director.cs" />
+    <Compile Include="Command\ConcereteCommand.cs" />
+    <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Command\Invoker.cs" />
+    <Compile Include="Command\Receiver.cs" />
     <Compile Include="Composite\Component.cs" />
     <Compile Include="Composite\Composite.cs" />
     <Compile Include="Composite\Leaf.cs" />
@@ -103,6 +107,9 @@
     <Compile Include="Singleton\Singleton_LazyType.cs" />
     <Compile Include="Singleton\Singleton_MultiThread.cs" />
     <Compile Include="Singleton\Singleton_StaticInit.cs" />
+    <Compile Include="TemplateMethod\AbstractClass.cs" />
+    <Compile Include="TemplateMethod\ConcreteClassA.cs" />
+    <Compile Include="TemplateMethod\ConcreteClassB.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
