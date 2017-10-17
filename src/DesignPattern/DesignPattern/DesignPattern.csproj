@@ -95,6 +95,15 @@
     <Compile Include="Iterator\ConcreteAggregate.cs" />
     <Compile Include="Iterator\ConcreteIterator.cs" />
     <Compile Include="Iterator\Iterator.cs" />
+    <Compile Include="Observer\First\QQGame.cs" />
+    <Compile Include="Observer\First\Subscriber.cs" />
+    <Compile Include="Observer\Last\AbstractGame.cs" />
+    <Compile Include="Observer\Last\QQGame.cs" />
+    <Compile Include="Observer\Last\Subscriber.cs" />
+    <Compile Include="Observer\Next\AbstractGame.cs" />
+    <Compile Include="Observer\Next\IObserver.cs" />
+    <Compile Include="Observer\Next\QQGame.cs" />
+    <Compile Include="Observer\Next\Subscriber.cs" />
     <Compile Include="Prototype\ConcretePrototype.cs" />
     <Compile Include="Prototype\ConcretePrototypeDeepClone.cs" />
     <Compile Include="Prototype\Prototype.cs" />

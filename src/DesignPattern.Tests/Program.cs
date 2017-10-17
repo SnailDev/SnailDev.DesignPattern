@@ -35,8 +35,8 @@ namespace DesignPattern.Tests
             // ProxyInvoke();
             // TemplateMethodInvoke();
             // CommandInvoke();
-
-            IteratorInvoke();
+            // IteratorInvoke();
+            ObserverInvoke();
 
             Console.ReadLine();
         }
@@ -224,6 +224,30 @@ namespace DesignPattern.Tests
                 Console.WriteLine("{0}请Say Hi！", i.CurrentItem());
                 i.Next();
             }
+        }
+
+        static void ObserverInvoke()
+        {
+            // 第一种方式
+            Observer.First.Subscriber XiaoMingSub = new Observer.First.Subscriber("XiaoMing");
+            Observer.First.QQGame qqGame1 = new Observer.First.QQGame("QQ Game", "Have a new game published ....");
+            qqGame1.Subscriber = XiaoMingSub;
+            qqGame1.Update();
+
+            // 第二种方式
+            Observer.Next.QQGame qqGame2 = new Observer.Next.QQGame("QQ Game", "Have a new game published ....");
+            qqGame2.AddObserver(new Observer.Next.Subscriber("XiaoMing"));
+            qqGame2.Update();
+
+            // 第三种方式
+            Observer.Last.QQGame qqGame3 = new Observer.Last.QQGame("QQ Game", "Have a new game published ....");
+            var xiaoming = new Observer.Last.Subscriber("XiaoMing");
+            var xiaohong = new Observer.Last.Subscriber("XiaoHong");
+
+            qqGame3.AddObserver(new Observer.Last.AbstractGame.NotifyEventHandler(xiaoming.ReceiveAndPrint));
+            qqGame3.AddObserver(new Observer.Last.AbstractGame.NotifyEventHandler(xiaohong.ReceiveAndPrint));
+
+            qqGame3.Update();
         }
     }
 }
