@@ -95,6 +95,11 @@
     <Compile Include="Iterator\ConcreteAggregate.cs" />
     <Compile Include="Iterator\ConcreteIterator.cs" />
     <Compile Include="Iterator\Iterator.cs" />
+    <Compile Include="Mediator\AbstractCardPartner.cs" />
+    <Compile Include="Mediator\AbstractMediator.cs" />
+    <Compile Include="Mediator\MediatorPater.cs" />
+    <Compile Include="Mediator\PartnerA.cs" />
+    <Compile Include="Mediator\PartnerB.cs" />
     <Compile Include="Observer\First\QQGame.cs" />
     <Compile Include="Observer\First\Subscriber.cs" />
     <Compile Include="Observer\Last\AbstractGame.cs" />

@@ -5,6 +5,7 @@ using DesignPattern.Decorator;
 using DesignPattern.Facade;
 using DesignPattern.FlyWeight;
 using DesignPattern.Iterator;
+using DesignPattern.Mediator;
 using DesignPattern.Proxy;
 using DesignPattern.TemplateMethod;
 using System;
@@ -36,7 +37,9 @@ namespace DesignPattern.Tests
             // TemplateMethodInvoke();
             // CommandInvoke();
             // IteratorInvoke();
-            ObserverInvoke();
+            // ObserverInvoke();
+
+            MediatorInvoke();
 
             Console.ReadLine();
         }
@@ -248,6 +251,50 @@ namespace DesignPattern.Tests
             qqGame3.AddObserver(new Observer.Last.AbstractGame.NotifyEventHandler(xiaohong.ReceiveAndPrint));
 
             qqGame3.Update();
+        }
+
+        static void MediatorInvoke()
+        {
+
+            #region 简单实现
+
+            //AbstractCardPartner A = new PartnerA();
+            //A.Money = 20;
+            //AbstractCardPartner B = new PartnerB();
+            //B.Money = 20;
+
+            //// A赢了B的钱减少
+            //A.ChangeMoney(5, B);
+            //Console.WriteLine("A 现在的钱是：{0}", A.Money); // 应该是25
+            //Console.WriteLine("B 现在的钱是：{0}", B.Money); // 应该是15
+
+            //// B赢了A的钱减少
+            //B.ChangeMoney(10, A);
+            //Console.WriteLine("A 现在的钱是：{0}", A.Money); // 应该是15
+            //Console.WriteLine("B 现在的钱是：{0}", B.Money); // 应该是25 
+
+            #endregion
+
+            #region 
+
+            AbstractCardPartner A = new PartnerA();
+            AbstractCardPartner B = new PartnerB();
+            A.Money = 20;
+            B.Money = 20;
+
+            AbstractMediator mediator = new MediatorPater(A, B);
+
+            // A赢了
+            A.ChangeMoney(5, mediator);
+            Console.WriteLine("A 现在的钱是：{0}", A.Money); // 应该是25
+            Console.WriteLine("B 现在的钱是：{0}", B.Money); // 应该是15
+
+            // B赢了A的钱减少
+            B.ChangeMoney(10, mediator);
+            Console.WriteLine("A 现在的钱是：{0}", A.Money); // 应该是15
+            Console.WriteLine("B 现在的钱是：{0}", B.Money); // 应该是25 
+
+            #endregion
         }
     }
 }
