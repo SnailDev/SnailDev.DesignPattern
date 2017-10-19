@@ -7,6 +7,7 @@ using DesignPattern.FlyWeight;
 using DesignPattern.Iterator;
 using DesignPattern.Mediator;
 using DesignPattern.Proxy;
+using DesignPattern.State;
 using DesignPattern.TemplateMethod;
 using System;
 using System.Collections.Generic;
@@ -38,8 +39,9 @@ namespace DesignPattern.Tests
             // CommandInvoke();
             // IteratorInvoke();
             // ObserverInvoke();
-
-            MediatorInvoke();
+            // MediatorInvoke();
+            // StateInvoke();
+            MediatorWithStateInvoke();
 
             Console.ReadLine();
         }
@@ -295,6 +297,45 @@ namespace DesignPattern.Tests
             Console.WriteLine("B 现在的钱是：{0}", B.Money); // 应该是25 
 
             #endregion
+        }
+
+        static void StateInvoke()
+        {
+            // 设置Context的初始状态为ConcreteStateA
+            Context context = new Context(new ConcreteStateA());
+
+            // 不断地进行请求，同时更改状态
+            for (int i = 0; i < 10; i++)
+            {
+                context.Request();
+            }
+        }
+
+        static void MediatorWithStateInvoke()
+        {
+            State.Mediator.AbstractCardPartner A = new State.Mediator.PartnerA();
+            State.Mediator.AbstractCardPartner B = new State.Mediator.PartnerB();
+            // 初始钱
+            A.Money = 20;
+            B.Money = 20;
+
+            State.Mediator.AbstractMediator mediator = new State.Mediator.MediatorPater(new State.Mediator.InitState());
+
+            // A,B玩家进入平台进行游戏
+            mediator.Add(A);
+            mediator.Add(B);
+
+            // A赢了
+            mediator.State = new State.Mediator.AWinState(mediator);
+            mediator.ChangeMoney(5);
+            Console.WriteLine("A 现在的钱是：{0}", A.Money);// 应该是25
+            Console.WriteLine("B 现在的钱是：{0}", B.Money); // 应该是15
+
+            // B 赢了
+            mediator.State = new State.Mediator.BWinState(mediator);
+            mediator.ChangeMoney(10);
+            Console.WriteLine("A 现在的钱是：{0}", A.Money);// 应该是25
+            Console.WriteLine("B 现在的钱是：{0}", B.Money); // 应该是15
         }
     }
 }
