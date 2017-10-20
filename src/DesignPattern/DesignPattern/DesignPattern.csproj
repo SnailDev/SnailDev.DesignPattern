@@ -134,6 +134,10 @@
     <Compile Include="State\Mediator\PartnerB.cs" />
     <Compile Include="State\Mediator\State.cs" />
     <Compile Include="State\State.cs" />
+    <Compile Include="Strategy\Context.cs" />
+    <Compile Include="Strategy\ICommunication.cs" />
+    <Compile Include="Strategy\Lan.cs" />
+    <Compile Include="Strategy\Serial.cs" />
     <Compile Include="TemplateMethod\AbstractClass.cs" />
     <Compile Include="TemplateMethod\ConcreteClassA.cs" />
     <Compile Include="TemplateMethod\ConcreteClassB.cs" />

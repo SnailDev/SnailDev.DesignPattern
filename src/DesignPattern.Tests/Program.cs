@@ -41,7 +41,8 @@ namespace DesignPattern.Tests
             // ObserverInvoke();
             // MediatorInvoke();
             // StateInvoke();
-            MediatorWithStateInvoke();
+            // MediatorWithStateInvoke();
+            StrategyInvoke();
 
             Console.ReadLine();
         }
@@ -336,6 +337,25 @@ namespace DesignPattern.Tests
             mediator.ChangeMoney(10);
             Console.WriteLine("A 现在的钱是：{0}", A.Money);// 应该是25
             Console.WriteLine("B 现在的钱是：{0}", B.Money); // 应该是15
+        }
+
+        static void StrategyInvoke()
+        {
+            Console.WriteLine("请输入通信类型：Lan、Serial");
+            string input = Console.ReadLine();
+            object data = new object();
+
+            Strategy.Context context = new Strategy.Context();
+            if (input.Equals("Lan")) 
+            {
+                context.SetStrategy(new Strategy.Lan());
+            }
+            else
+            {
+                context.SetStrategy(new Strategy.Serial());
+            }
+
+            context.Send(data);
         }
     }
 }
