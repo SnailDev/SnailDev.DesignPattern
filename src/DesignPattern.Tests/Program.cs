@@ -1,4 +1,5 @@
 ﻿using DesignPattern.Bridge;
+using DesignPattern.Chain;
 using DesignPattern.Command;
 using DesignPattern.Composite;
 using DesignPattern.Decorator;
@@ -42,7 +43,9 @@ namespace DesignPattern.Tests
             // MediatorInvoke();
             // StateInvoke();
             // MediatorWithStateInvoke();
-            StrategyInvoke();
+            // StrategyInvoke();
+
+            ChainInvoke();
 
             Console.ReadLine();
         }
@@ -346,7 +349,7 @@ namespace DesignPattern.Tests
             object data = new object();
 
             Strategy.Context context = new Strategy.Context();
-            if (input.Equals("Lan")) 
+            if (input.Equals("Lan"))
             {
                 context.SetStrategy(new Strategy.Lan());
             }
@@ -356,6 +359,24 @@ namespace DesignPattern.Tests
             }
 
             context.Send(data);
+        }
+
+        static void ChainInvoke()
+        {
+            PurchaseRequest requestTelphone = new PurchaseRequest("Telphone", 8000.0);
+            PurchaseRequest requestSoftware = new PurchaseRequest("Ms System", 60000.0);
+            PurchaseRequest requestComputers = new PurchaseRequest("Computers", 80000.0);
+
+            Approver manager = new Manager("XiaoJun");
+            Approver vp = new VicePresident("XiaoHong");
+            Approver pre = new President("XiaoMing");
+
+            manager.NextApprover = vp;
+            vp.NextApprover = pre;
+
+            manager.ProcessRequest(requestTelphone);
+            manager.ProcessRequest(requestSoftware);
+            manager.ProcessRequest(requestComputers);
         }
     }
 }

@@ -54,6 +54,11 @@
     <Compile Include="Builder\BuilderA.cs" />
     <Compile Include="Builder\BuilderB.cs" />
     <Compile Include="Builder\Director.cs" />
+    <Compile Include="Chain\Approver.cs" />
+    <Compile Include="Chain\Manager.cs" />
+    <Compile Include="Chain\President.cs" />
+    <Compile Include="Chain\PurchaseRequest.cs" />
+    <Compile Include="Chain\VicePresident.cs" />
     <Compile Include="Command\ConcereteCommand.cs" />
     <Compile Include="Command\ICommand.cs" />
     <Compile Include="Command\Invoker.cs" />
