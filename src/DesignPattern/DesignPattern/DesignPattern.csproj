@@ -146,6 +146,12 @@
     <Compile Include="TemplateMethod\AbstractClass.cs" />
     <Compile Include="TemplateMethod\ConcreteClassA.cs" />
     <Compile Include="TemplateMethod\ConcreteClassB.cs" />
+    <Compile Include="Visitor\ConcreteVisitor.cs" />
+    <Compile Include="Visitor\Element.cs" />
+    <Compile Include="Visitor\ElementA.cs" />
+    <Compile Include="Visitor\ElementB.cs" />
+    <Compile Include="Visitor\IVisitor.cs" />
+    <Compile Include="Visitor\ObjectStructure.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

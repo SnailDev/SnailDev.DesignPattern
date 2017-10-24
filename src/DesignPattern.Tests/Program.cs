@@ -10,6 +10,7 @@ using DesignPattern.Mediator;
 using DesignPattern.Proxy;
 using DesignPattern.State;
 using DesignPattern.TemplateMethod;
+using DesignPattern.Visitor;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -44,8 +45,9 @@ namespace DesignPattern.Tests
             // StateInvoke();
             // MediatorWithStateInvoke();
             // StrategyInvoke();
+            // ChainInvoke();
 
-            ChainInvoke();
+            VisitorInvoke();
 
             Console.ReadLine();
         }
@@ -377,6 +379,17 @@ namespace DesignPattern.Tests
             manager.ProcessRequest(requestTelphone);
             manager.ProcessRequest(requestSoftware);
             manager.ProcessRequest(requestComputers);
+        }
+
+        static void VisitorInvoke()
+        {
+            ObjectStructure objectStructure = new ObjectStructure();
+            foreach (var e in objectStructure.Elements)
+            {
+                // e.Print();
+
+                e.Accept(new ConcreteVisitor());
+            }
         }
     }
 }
